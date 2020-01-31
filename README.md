@@ -35,7 +35,7 @@ The following steps are takeng during renewal:
 To install, register and apply for a cert run the following command on the IPA
 server as a root user with a valid admin kerberos ticket:
 
-bash < (curl -s https://raw.githubusercontent.com/antevens/letsencrypt-freeipa/master/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/antevens/letsencrypt-freeipa/master/install.sh)
 
 
 Note that when upgrading from Centos/RHEL 7.3 to 7.4 you might encounter the
@@ -51,7 +51,7 @@ The following steps should mitigate the issue and allow the upgrade to proceed
 yum update -y # Will throw an error
 yum -y install patch
 cd /usr/lib/python2.7/site-packages/ipaserver
-bash < (curl -s https://pagure.io/freeipa/raw/52853875e298e38a1e5a9a56c02aac9e30916044 -O ipa45_cert_upgrade_error.patch)
+bash <(curl -s https://pagure.io/freeipa/raw/52853875e298e38a1e5a9a56c02aac9e30916044 -O ipa45_cert_upgrade_error.patch)
 patch -p 2 < ipa45_cert_upgrade_error.patch
 
 mv /usr/lib/python2.7/site-packages/ipalib/install/certstore.py /usr/lib/python2.7/site-packages/ipalib/install/certstore.py.old

@@ -35,7 +35,7 @@ The following steps are takeng during renewal:
 To install, register and apply for a cert run the following command on the IPA
 server as a root user with a valid admin kerberos ticket:
 
-wget https://raw.githubusercontent.com/antevens/letsencrypt-freeipa/master/install.sh -O - | bash
+bash < (curl -s https://raw.githubusercontent.com/antevens/letsencrypt-freeipa/master/install.sh)
 
 
 Note that when upgrading from Centos/RHEL 7.3 to 7.4 you might encounter the

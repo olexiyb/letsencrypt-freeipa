@@ -55,7 +55,7 @@ if [[ ${REPLY} =~ ^[Yy]$ ]]; then
     export interactive
     old_umask="$(umask)"
     umask 0002
-    bash < (curl -s https://raw.githubusercontent.com/antevens/letsencrypt-freeipa/master/register.sh)
+    bash <(curl -s https://raw.githubusercontent.com/antevens/letsencrypt-freeipa/master/register.sh)
     curl https://raw.githubusercontent.com/antevens/letsencrypt-freeipa/master/renew.sh -o "${destination}"
     chown root:root "${destination}"
     chmod 0700 "${destination}"

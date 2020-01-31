@@ -93,8 +93,8 @@ if [[ ${REPLY} =~ ^[Yy]$ ]]; then
     # shellcheck disable=2154
     principals="$(ipa host-show "${host}" --raw | grep krbprincipalname | grep 'host/' | sed 's.krbprincipalname: host/..' | sed s/"@${realm}"//)"
 
-    wget https://letsencrypt.org/certs/isrgrootx1.pem | sudo ipa-cacert-manage install isrgrootx1.pem -n ISRGRootCAX1 -t C,,
-    wget https://letsencrypt.org/certs/letsencryptauthorityx3.pem | sudo ipa-cacert-manage install letsencryptauthorityx3.pem -n ISRGRootCAX3 -t C,,
+    curl https://letsencrypt.org/certs/isrgrootx1.pem -o isrgrootx1.pem  | sudo ipa-cacert-manage install isrgrootx1.pem -n ISRGRootCAX1 -t C,,
+    curl https://letsencrypt.org/certs/letsencryptauthorityx3.pem -o letsencryptauthorityx3.pem | sudo ipa-cacert-manage install letsencryptauthorityx3.pem -n ISRGRootCAX3 -t C,,
     if [ "${EUID}" -ne 0 ] && ${interactive} ; then
         sudo bash -c "export KRB5CCNAME='${KRB5CCNAME:-}' && ipa-certupdate -v"
     else
